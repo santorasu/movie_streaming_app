@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors{
-  static Color themeColor = Colors.deepPurple;
+  static Color themeColor = Color(0xFF7A24BC);
 
   static MaterialColor getMaterialColor(Color color) {
     final int red = color.red;
