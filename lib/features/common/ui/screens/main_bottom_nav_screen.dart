@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie_streaming_app/features/common/controllers/main_bottom_nav_controller.dart';
 import 'package:movie_streaming_app/features/home/ui/home_screen.dart';
+import 'package:movie_streaming_app/features/movie_details/ui/movie_details_screen.dart';
 
 class MainBottomNavScreen extends StatefulWidget {
   const MainBottomNavScreen({super.key});
@@ -16,7 +17,7 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screens = [
     HomeScreen(),
     HomeScreen(),
-    HomeScreen(),
+    MovieDetailsScreen(movieId: '123',),
     HomeScreen(),
     HomeScreen(),
   ];

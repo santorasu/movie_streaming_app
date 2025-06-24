@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:movie_streaming_app/app/asset_paths.dart';
+import 'package:movie_streaming_app/features/common/controllers/main_bottom_nav_controller.dart';
 import 'package:movie_streaming_app/features/home/widgets/home_carousel_slider.dart';
 import 'package:movie_streaming_app/features/movies/ui/screens/movie_card.dart';
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_streaming_app/features/movie_details/ui/movie_details_screen.dart';
+import 'package:get/get.dart';
+import 'package:movie_streaming_app/features/common/controllers/main_bottom_nav_controller.dart';
 import '../../../../app/app_colors.dart';
 
 class MovieCard extends StatelessWidget {
@@ -16,26 +17,17 @@ class MovieCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, MovieDetailsScreen.name);
+        Get.find<MainBottomNavController>().moveToMovieDetails();
       },
       child: Container(
         width: 150,
         margin: const EdgeInsets.symmetric(horizontal: 6),
         decoration: BoxDecoration(
-          color: Colors.white,
           borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.themeColor.withOpacity(0.15),
-              blurRadius: 4,
-              offset: Offset(0, 2),
-            ),
-          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Movie Poster
             ClipRRect(
               borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(8),
@@ -45,10 +37,10 @@ class MovieCard extends StatelessWidget {
                 imagePath,
                 height: 200,
                 width: double.infinity,
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
-            const SizedBox(height: 8,),
+            const SizedBox(height: 4,),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: Text(
@@ -56,7 +48,7 @@ class MovieCard extends StatelessWidget {
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontWeight: FontWeight.w600,
                   fontSize: 14,
                 ),
