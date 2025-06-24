@@ -10,8 +10,9 @@ class AppRoutes {
       screenWidget = const SplashScreen();
     } else if (settings.name == MainBottomNavScreen.name) {
       screenWidget = MainBottomNavScreen();
-    }else if (settings.name == MovieDetailsScreen.name) {
-      screenWidget = MovieDetailsScreen();
+    } else if (settings.name == MovieDetailsScreen.name) {
+      final String productId = settings.arguments as String;
+      screenWidget = MovieDetailsScreen(movieId: productId);
     }
     return MaterialPageRoute(builder: (context) => screenWidget);
   }

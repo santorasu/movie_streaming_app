@@ -12,8 +12,8 @@ class MainBottomNavController extends GetxController {
     update();
   }
 
-  void moveToCategory() {
-    changeIndex(1);
+  void moveToMovieDetails() {
+    changeIndex(2);
   }
 
   void backToHome() {
