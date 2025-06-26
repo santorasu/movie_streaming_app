@@ -13,7 +13,12 @@ class MovieStreamingApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.name,
-      theme: ThemeData.dark(),
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+        fontFamily: 'Poppins',
+        scaffoldBackgroundColor: Colors.black,
+      ),
       onGenerateRoute: AppRoutes.routes,
       initialBinding: ControllerBinder(),
     );
