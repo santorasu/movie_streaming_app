@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:movie_streaming_app/features/common/controllers/main_bottom_nav_controller.dart';
-import '../../../../app/app_colors.dart';
 
 class MovieCard extends StatelessWidget {
   final String imagePath;
