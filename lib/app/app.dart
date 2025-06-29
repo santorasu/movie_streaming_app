@@ -14,7 +14,7 @@ class MovieStreamingApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: SplashScreen.name,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF18122B)),
         useMaterial3: true,
         fontFamily: 'Poppins',
         scaffoldBackgroundColor: Colors.black,

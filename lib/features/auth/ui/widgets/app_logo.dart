@@ -13,7 +13,7 @@ class AppLogo extends StatelessWidget {
     return SvgPicture.asset(
       AssetPaths.appLogo,
       width: width ?? 140,
-      height: height,
+      height: height ?? width ?? 140,
       fit: BoxFit.scaleDown,
     );
   }
