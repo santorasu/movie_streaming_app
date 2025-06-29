@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:movie_streaming_app/app/app_colors.dart';
 import 'package:movie_streaming_app/app/asset_paths.dart';
 import 'package:movie_streaming_app/features/common/controllers/main_bottom_nav_controller.dart';
-import 'package:movie_streaming_app/features/home/widgets/app_bar_icon_button.dart';
+import 'package:movie_streaming_app/features/home/ui/widgets/app_bar_icon_button.dart';
+import 'package:movie_streaming_app/features/movie_details/ui/widgets/share_to_social_media.dart';
+import 'package:movie_streaming_app/features/movie_details/ui/widgets/show_ratting_popup.dart';
 import 'package:movie_streaming_app/features/movies/ui/widgets/movie_details_text_button.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
@@ -35,7 +37,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                 children: [
                   Image.asset(
                     AssetPaths.moviePoster,
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                     height: 420,
                     width: double.infinity,
                   ),
@@ -88,11 +90,16 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                             size: 20,
                           ),
                           SizedBox(width: 4),
-                          Text(
-                            "8.2/10",
-                            style: TextStyle(
-                              color: AppColors.themeColor,
-                              fontSize: 20,
+                          GestureDetector(
+                            onTap: (){
+                              showRatingPopup(context);
+                            },
+                            child: Text(
+                              "8.2/10",
+                              style: TextStyle(
+                                color: AppColors.themeColor,
+                                fontSize: 20,
+                              ),
                             ),
                           ),
                           SizedBox(width: 4),
@@ -164,7 +171,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                     ),
                     AppBarIconButton(
                       onTap: () {
-                        _shareToSocialMedia();
+                        showShareBottomSheet(context);
                       },
                       iconData: Icons.share,
                       color: AppColors.themeColor,
@@ -294,7 +301,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
           ),
           SizedBox(height: 6),
           Text(
-            label,  
+            label,
             style: TextStyle(color: Colors.white, fontSize: 12),
             textAlign: TextAlign.center,
           ),
@@ -303,3 +310,4 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     );
   }
 }
+

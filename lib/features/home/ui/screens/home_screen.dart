@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_streaming_app/app/asset_paths.dart';
-import 'package:movie_streaming_app/features/home/widgets/home_carousel_slider.dart';
+import 'package:movie_streaming_app/features/home/ui/widgets/home_carousel_slider.dart';
 import 'package:movie_streaming_app/features/movies/ui/screens/movie_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -55,7 +55,7 @@ Widget _buildSectionHeader({
     child: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600)),
+        Text(title, style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600,color: Colors.white)),
         TextButton(onPressed: onTapSeeAll, child: Text('View all')),
       ],
     ),
@@ -78,7 +78,7 @@ Widget _getMovieList() {
         );
       },
       separatorBuilder: (context, index) => const SizedBox(width: 8),
-      itemCount: 10,
+      itemCount: 50,
     ),
   );
 }

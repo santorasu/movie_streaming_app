@@ -2,6 +2,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_streaming_app/app/app_colors.dart';
 import 'package:movie_streaming_app/app/asset_paths.dart';
+import 'package:movie_streaming_app/features/home/ui/widgets/search_box_widget.dart';
+import 'package:movie_streaming_app/features/movie_details/ui/widgets/share_to_social_media.dart';
+import 'package:movie_streaming_app/features/movie_details/ui/widgets/show_ratting_popup.dart';
+import 'package:movie_streaming_app/features/my_favourite/ui/screens/my_favourite_screen.dart';
 
 import 'app_bar_icon_button.dart';
 
@@ -37,7 +41,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                       width: double.infinity,
                       child: Image.asset(
                         AssetPaths.moviePoster,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                       ),
                     ),
                     // Gradient overlay
@@ -65,31 +69,7 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           // Search bar
-                          Expanded(
-                            child: Container(
-                              height: 40,
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 16,
-                              ),
-                              decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.3),
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Row(
-                                children: [
-                                  Icon(Icons.search, color: Colors.white70),
-                                  SizedBox(width: 8),
-                                  Text(
-                                    "Search",
-                                    style: TextStyle(
-                                      color: Colors.white70,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+                          SearchBox(),
                           SizedBox(width: 12),
                           // Alarm Icon
                           CircleAvatar(
@@ -137,9 +117,14 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                                     ),
                                   ),
                                   SizedBox(width: 8),
-                                  Text(
-                                    "8.2/10",
-                                    style: TextStyle(color: Colors.white70),
+                                  GestureDetector(
+                                    onTap: (){
+                                      showRatingPopup(context);
+                                    },
+                                    child: Text(
+                                      "8.2/10",
+                                      style: TextStyle(color: Colors.white70),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -184,11 +169,15 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
                                     iconData: Icons.download, color: AppColors.themeColor,
                                   ),
                                   AppBarIconButton(
-                                    onTap: () {},
+                                    onTap: () {
+                                      showShareBottomSheet(context);
+                                    },
                                     iconData: Icons.share, color: AppColors.themeColor,
                                   ),
                                   AppBarIconButton(
-                                    onTap: () {},
+                                    onTap: () {
+                                     // Navigator.push((context), MaterialPageRoute(builder: (context)=> FavoriteScreen()));
+                                    },
                                     iconData: Icons.bookmark_border, color: AppColors.themeColor,
                                   ),
                                 ],
@@ -229,3 +218,5 @@ class _HomeCarouselSliderState extends State<HomeCarouselSlider> {
     );
   }
 }
+
+
